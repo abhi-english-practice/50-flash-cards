@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>50 Collocation Flashcards – Styled</title>
+<style>
+:root {
+  --bg:#f5efe1;
+  --navy:#163f69;
+  --navy-soft:#627b93;
+  --cream:#fdfaf4;
+  --yellow:#f8edbb;
+  --yellow-line:#f0c654;
+  --pink:#ef6768;
+  --pink-bg:#fff1ef;
+  --pink-text:#a43d3f;
+  --blue:#3d86f5;
+  --blue-bg:#d9e9ff;
+  --blue-text:#1d57af;
+  --green-bg:#e1f0e4;
+  --purple:#8f84de;
+  --lavender:#eee7fb;
+  --shadow:0 10px 0 rgba(22,63,105,.06);
+}
+*{box-sizing:border-box}
+img,button,input,select{max-width:100%}
+body{overflow-x:hidden}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family: Arial, Helvetica, sans-serif;
+  background:var(--bg);
+  color:var(--navy);
+}
+.wrapper{
+  max-width:920px;
+  margin:0 auto;
+  padding:16px 10px 36px;
+}
+.header{text-align:center;margin-bottom:14px}
+.header .mini{
+  font-size:14px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--pink);
+}
+.header h1{margin:8px 0 6px;font-size:clamp(24px,5vw,38px);line-height:1.15}
+.header p{margin:0;color:var(--navy-soft);font-size:15px}
+.panel-box,.card-shell{
+  border:4px solid var(--navy);
+  border-radius:28px;
+  box-shadow:var(--shadow);
+  background:rgba(255,255,255,.45);
+}
+.toolbar{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  padding:8px;
+  margin-bottom:8px;
+}
+.input,.select,.btn{font:inherit;min-height:42px;border-radius:14px}
+.input,.select{
+  width:100%;border:3px solid var(--navy);background:#fff;padding:8px 10px;color:var(--navy);
+}
+.btn{
+  border:3px solid var(--navy);background:#fff;color:var(--navy);padding:8px 12px;font-weight:800;cursor:pointer;
+}
+.btn-pink{background:var(--pink-bg);border-color:var(--pink);color:var(--pink-text)}
+.btn-blue{background:var(--blue-bg);border-color:var(--blue);color:var(--blue-text)}
+.btn-lav{background:var(--lavender)}
+.random-wrap{padding:3px;background:var(--lavender);text-align:center;margin-bottom:10px}
+.random-main{width:100%;border:none;background:transparent;color:var(--navy);font-size:24px;font-weight:800;padding:5px;cursor:pointer}
+.card-shell{border-radius:34px;overflow:hidden;background:rgba(255,255,255,.38)}
+.card-inner{padding:14px 14px 16px}
+.topbar{display:flex;justify-content:space-between;gap:14px;align-items:flex-start}
+.right-col{display:flex;flex-direction:column;gap:16px}
+.pill{
+  display:inline-flex;align-items:center;padding:10px 18px;border:3px solid var(--navy);border-radius:999px;background:#fff4c7;font-weight:800;text-transform:uppercase;font-size:17px;letter-spacing:.03em
+}
+.top-info{margin-top:10px;color:var(--navy-soft);font-size:15px;font-weight:800;line-height:1.3}
+.divider{border-top:4px dashed var(--navy);margin:18px -18px 20px}
+.label{font-size:18px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;margin-bottom:8px}
+.word{
+  font-family: Georgia, "Times New Roman", serif;
+  font-size:clamp(42px,8vw,72px);
+  font-weight:700;
+  line-height:1;
+  margin:0 0 8px;
+  overflow-wrap:anywhere;
+  word-break:break-word;
+}
+.ipa{color:var(--purple);font-size:clamp(22px,4vw,34px);font-weight:800;margin-bottom:12px}
+.definition{
+  font-size:clamp(17px,3vw,25px);
+  line-height:1.45;
+  color:#3b5876;
+  margin-bottom:14px;
+  min-height:auto;
+  overflow-wrap:anywhere;
+}
+.recall{
+  background:var(--yellow);border:4px dashed var(--navy);border-radius:28px;padding:18px 20px;margin-bottom:18px
+}
+.recall .title,.section-red{color:var(--pink);font-size:18px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;margin:0 0 12px}
+.recall ul{margin:0;padding-left:30px}
+.recall li{font-size:clamp(18px,3vw,22px);font-weight:800;margin:14px 0}
+.note{color:var(--navy-soft);font-size:15px;margin-top:8px}
+.action-row{display:flex;flex-wrap:wrap;gap:14px}
+.bottom-nav{display:flex;justify-content:space-between;align-items:flex-end;gap:14px;flex-wrap:wrap}
+.hint{font-size:14px;color:var(--navy-soft);font-weight:800}
+.nav-buttons{display:flex;gap:14px;flex-wrap:wrap}
+.mode-tabs{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.mode-btn{flex:1 1 180px}
+.coll-panel{
+  border:4px solid var(--navy);border-radius:30px;background:rgba(255,255,255,.78);padding:18px 16px;min-height:630px;display:flex;flex-direction:column;justify-content:flex-start
+}
+.coll-tag{
+  display:inline-flex;border:3px solid var(--navy);border-radius:999px;padding:10px 18px;background:#eef8ea;font-weight:800;margin:14px 0 16px;width:max-content;max-width:100%
+}
+.phrase{
+  font-family:Georgia, "Times New Roman", serif;
+  font-size:clamp(26px,5vw,42px);
+  line-height:1.12;
+  margin-bottom:8px;
+  overflow-wrap:anywhere;
+  word-break:break-word;
+}
+.back-ipa{color:var(--purple);font-size:clamp(22px,4vw,30px);font-weight:800;margin-bottom:8px}
+.meaning-line{font-size:clamp(18px,3vw,22px);color:#445f78;display:inline-block;border-bottom:6px solid var(--yellow-line);padding-bottom:6px;margin-bottom:18px}
+.example{
+  font-size:clamp(18px,3vw,26px);line-height:1.6;color:#203d59;margin-bottom:18px;min-height:120px
+}
+.example mark{background:#d8efc7;padding:0 .18em}
+.vn-box{
+  background:var(--green-bg);border:3px solid var(--navy);border-radius:22px;padding:18px;margin-bottom:18px;min-height:160px
+}
+.vn-box .label-small{text-transform:uppercase;letter-spacing:.18em;font-weight:900;margin-bottom:10px}
+.vn-box .vn-text{font-size:clamp(18px,3vw,22px);line-height:1.55;color:#2f4a66;font-style:italic}
+.back-bottom{margin-top:auto}
+.hidden-vn .definition-vn,.hidden-vn .meaning-line,.hidden-vn .vn-box{display:none!important}
+.hidden-vn .definition::after{content:'(Vietnamese hidden)';display:block;margin-top:6px;font-size:15px;color:var(--navy-soft);font-style:italic}
+@media (max-width:780px){
+  .toolbar{grid-template-columns:1fr 1fr;padding:6px;gap:6px}
+  .span2{grid-column:span 2}
+  .topbar{flex-direction:column;align-items:stretch}
+  .right-col{flex-direction:row;flex-wrap:wrap}
+  .coll-panel{min-height:unset}
+  .definition{min-height:unset}
+  .example{min-height:unset}
+  .vn-box{min-height:unset}
+}
+</style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="header">
+    <div class="mini">APTIS FLIP CARD DOSSIER</div>
+    <h1>50 Focus Words – 2 Collocations Each</h1>
+    <p>Mỗi từ có 2 collocations, thiết kế lại theo phong cách mẫu, tối ưu cho điện thoại.</p>
+  </div>
+
+  <div class="panel-box toolbar">
+    <input id="searchInput" class="input span2" list="wordList" placeholder="Input: Search V001, word, collocation…" />
+    <datalist id="wordList"></datalist>
+    <select id="cardSelect" class="select"><option value="">Select</option></select>
+    <button class="btn" id="jumpBtn">Jump</button>
+    <button class="btn" id="toggleVnBtn">Hide Vietnamese</button>
+    <button class="btn btn-lav" id="randomTopBtn">Random</button>
+  </div>
+
+  <div class="panel-box random-wrap">
+    <button class="random-main" id="randomBigBtn">Random</button>
+  </div>
+
+  <div class="card-shell" id="cardShell"></div>
+</div>
+
+<script>
+const cards = [{"id": 1, "word": "Technological advancement", "ipa": "/ˌteknəˈlɒdʒɪkl ədˈvɑːnsmənt/", "meaning": "Sự tiến bộ công nghệ", "simple": "The development of new technology that improves society, industries, or people's daily lives.", "collocations": [{"index": 1, "title": "COLLOCATION 1", "tag": "CÔNG NGHỆ", "phrase": "rapid technological advancement", "meaning": "tiến bộ công nghệ nhanh", "example": "Rapid technological advancement has changed the way people work and communicate.", "note": "Dùng trong IELTS khi nói về tác động của công nghệ đến đời sống và việc làm.", "translation": "Tiến bộ công nghệ nhanh đã thay đổi cách con người làm việc và giao tiếp."}, {"index": 2, "title": "COLLOCATION 2", "tag": "PHÁT TRIỂN", "phrase": "drive technological advancement", "meaning": "thúc đẩy tiến bộ công nghệ", "example": "Investment in research can drive technological advancement in developing countries.", "note": "Hợp với Task 2 về đầu tư, đổi mới và phát triển quốc gia.", "translation": "Đầu tư vào nghiên cứu có thể thúc đẩy tiến bộ công nghệ ở các nước đang phát triển."}]}, {"id": 2, "word": "Innovation", "ipa": "/ˌɪnəˈveɪʃən/", "meaning": "Sự đổi mới, sáng tạo", "simple": "A new idea, method, or technology that creates improvement.", "collocations": [{"index": 1, "title": "COLLOCATION 1", "tag": "SÁNG TẠO", "phrase": "foster innovation", "meaning": "thúc đẩy sự đổi mới", "example": "Schools should foster innovation by encouraging students to solve real problems.", "note": "Dùng tốt cho chủ đề giáo dục, doanh nghiệp và tư duy sáng tạo.", "translation": "Trường học nên thúc đẩy sự đổi mới bằng cách khuyến khích học sinh giải quyết các vấn đề thực tế."}, {"index": 2, "title": "COLLOCATION 2", "tag": "CÔNG NGHỆ", "phrase": "technological innovation", "meaning": "đổi mới công nghệ", "example": "Technological innovation can improve healthcare in remote areas.", "note": "Phù hợp khi viết về lợi ích của công nghệ đối với xã hội.", "translation": "Đổi mới công nghệ có thể cải thiện dịch vụ y tế ở các vùng xa xôi."}]}, {"id": 3, "word": "Economic prosperity", "ipa": "/ˌiːkəˈnɒmɪk prɒˈsperəti/", "meaning": "Sự thịnh vượng kinh tế", "simple": "A situation where a country or region becomes financially successful.", "collocations": [{"index": 1, "title": "COLLOCATION 1", "tag": "KINH TẾ", "phrase": "achieve economic prosperity", "meaning": "đạt được thịnh vượng kinh tế", "example": "Many nations aim to achieve economic prosperity without harming the environment.", "note": "Dùng cho các bài về tăng trưởng kinh tế và phát triển bền vững.", "translation": "Nhiều quốc gia hướng tới việc đạt được sự thịnh vượng kinh tế mà không gây hại cho môi trường."}, {"index": 2, "title": "COLLOCATION 2", "tag": "TƯƠNG LAI", "phrase": "long-term economic prosperity", "meaning": "thịnh vượng kinh tế lâu dài", "example": "Education plays a key role in long-term economic prosperity.", "note": "Hợp để lập luận về giáo dục, việc làm và chính sách công.", "translation": "Giáo dục đóng vai trò then chốt đối với sự thịnh vượng kinh tế lâu dài."}]}, {"id": 4, "word": "Entrepreneurial ambition", "ipa": "/ˌɒntrəprəˈnɜːriəl æmˈbɪʃən/", "meaning": "Tham vọng khởi nghiệp", "simple": "The desire and motivation to create businesses and achieve success.", "collocations": [{"index": 1, "title": "COLLOCATION 1", "tag": "KINH DOANH", "phrase": "show entrepreneurial ambition", "meaning": "thể hiện tham vọng khởi nghiệp", "example": "Young people are increasingly willing to show entrepreneurial ambition.", "note": "Dùng khi nói về giới trẻ, việc làm và khởi nghiệp.", "translation": "Người trẻ ngày càng sẵn sàng thể hiện tham vọng khởi nghiệp."}, {"index": 2, "title": "COLLOCATION 2", "tag": "GIÁO DỤC", "phrase": "encourage entrepreneurial ambition", "meaning": "khuyến khích tinh thần khởi nghiệp", "example": "Universities can encourage entrepreneurial ambition through practical projects.", "note": "Phù hợp trong bài viết về vai trò của nhà trường và kỹ năng tương lai.", "translation": "Các trường đại học có thể khuyến khích tinh thần khởi nghiệp thông qua các dự án thực tế."}]}, {"id": 5, "word": "Digital transformation", "ipa": "/ˈdɪdʒɪtl ˌtrænsfəˈmeɪʃən/", "meaning": "Sự chuyển đổi số", "simple": "The process of changing traditional systems by using digital technology.", "collocations": [{"index": 1, "title": "COLLOCATION 1", "tag": "DOANH NGHIỆP", "phrase": "undergo digital transformation", "meaning": "trải qua chuyển đổi số", "example": "Many small businesses need to undergo digital transformation to survive.", "note": "Dùng tốt cho chủ đề kinh doanh, dịch vụ và hiện đại hoá.", "translation": "Nhiều doanh nghiệp nhỏ cần trải qua chuyển đổi số để tồn tại."}, {"index": 2, "title": "COLLOCATION 2", "tag": "CÔNG NGHỆ", "phrase": "accelerate digital transformation", "meaning": "đẩy nhanh chuyển đổi số", "example": "Governments are trying to accelerate digital transformation in public services.", "note": "Hợp với đề về chính phủ, dịch vụ công và đổi mới công nghệ.", "translation": "Các chính phủ đang cố gắng đẩy nhanh chuyển đổi số trong các dịch vụ công."}]}, {"id": 6, "word": "Superficial layer", "ipa": "/ˌsuːpəˈfɪʃəl ˈleɪə(r)/", "meaning": "Lớp bề mặt; điều chỉ thể hiện phần bên ngoài", "simple": "Something that shows only the obvious appearance but does not reveal deeper meanings or hidden aspects.", "collocations": [{"index": 1, "title": "COLLOCATION 1", "tag": "PHÂN TÍCH", "phrase": "a superficial layer of understanding", "meaning": "một lớp hiểu biết bề mặt", "example": "Looking only at test scores gives a superficial layer of understanding.", "note": "Dùng để phê bình cách nhìn đơn giản, thiếu chiều sâu.", "translation": "Chỉ nhìn vào điểm thi sẽ tạo ra một cách hiểu hời hợt."}, {"index": 2, "title": "COLLOCATION 2", "tag": "TƯ DUY", "phrase": "look beyond the superficial layer", "meaning": "nhìn vượt ra ngoài lớp bề mặt", "example": "Students should look beyond the superficial layer of a social problem.", "note": "Phù hợp trong Task 2 khi phân tích nguyên nhân sâu xa.", "translation": "Học sinh nên nhìn vượt ra ngoài lớp bề mặt của một vấn đề xã hội."}]}, {"id": 7, "word": "Complex historical narrative", "ipa": "/ˈkɒmpleks hɪˈstɒrɪkl ˈnærətɪv/", "meaning": "Câu chuyện lịch sử phức tạp", "simple": "A detailed understanding of history that includes different events, people, and relationships.", "collocations": [{"index": 1, "title": "COLLOCATION 1", "tag": "LỊCH SỬ", "phrase": "shape a complex historical narrative", "meaning": "định hình một câu chuyện lịch sử phức tạp", "example": "Wars and migration can shape a complex historical narrative.", "note": "Dùng tốt cho chủ đề lịch sử, bản sắc và thay đổi xã hội.", "translation": "Chiến tranh và di cư có thể định hình một câu chuyện lịch sử phức tạp."}, {"index": 2, "title": "COLLOCATION 2", "tag": "NGHIÊN CỨU", "phrase": "understand a complex historical narrative", "meaning": "hiểu một câu chuyện lịch sử phức tạp", "example": "Museums help visitors understand a complex historical narrative.", "note": "Hợp cho bài nói hoặc viết về di sản và giáo dục lịch sử.", "translation": "Bảo tàng giúp khách tham quan hiểu một câu chuyện lịch sử phức tạp."}]}, {"id": 8, "word": "Ecological processes", "ipa": "/ˌiːkəˈlɒdʒɪkl ˈprəʊsesɪz/", "meaning": "Các quá trình sinh thái", "simple": "Natural processes that allow ecosystems to function and develop.", "collocations": [{"index": 1, "title": "COLLOCATION 1", "tag": "MÔI TRƯỜNG", "phrase": "disrupt ecological processes", "meaning": "làm gián đoạn các quá trình sinh thái", "example": "Urban expansion may disrupt ecological processes in fragile areas.", "note": "Dùng cho bài về đô thị hoá, môi trường và hậu quả phát triển.", "translation": "Sự mở rộng đô thị có thể làm gián đoạn các quá trình sinh thái ở những khu vực mong manh."}, {"index": 2, "title": "COLLOCATION 2", "tag": "BẢO TỒN", "phrase": "support ecological processes", "meaning": "hỗ trợ các quá trình sinh thái", "example": "Protected parks help support ecological processes naturally.", "note": "Phù hợp trong bài về bảo tồn và phát triển bền vững.", "translation": "Các công viên được bảo vệ giúp hỗ trợ các quá trình sinh thái một cách tự nhiên."}]}, {"id": 9, "word": "Agricultural traditions", "ipa": "/ˌæɡrɪˈkʌltʃərəl trəˈdɪʃənz/", "meaning": "Truyền thống nông nghiệp", "simple": "Farming practices and knowledge developed and maintained over generations.", "collocations": [{"index": 1, "title": "COLLOCATION 1", "tag": "NÔNG NGHIỆP", "phrase": "preserve agricultural traditions", "meaning": "gìn giữ truyền thống nông nghiệp", "example": "Rural tourism can help preserve agricultural traditions.", "note": "Dùng cho chủ đề nông thôn, văn hoá và du lịch.", "translation": "Du lịch nông thôn có thể giúp gìn giữ các truyền thống nông nghiệp."}, {"index": 2, "title": "COLLOCATION 2", "tag": "CANH TÁC", "phrase": "traditional agricultural practices", "meaning": "phương thức canh tác truyền thống", "example": "Traditional agricultural practices are often more environmentally friendly.", "note": "Hợp khi so sánh phương pháp truyền thống và hiện đại.", "translation": "Các phương thức canh tác truyền thống thường thân thiện với môi trường hơn."}]}, {"id": 10, "word": "Collective memories", "ipa": "/kəˈlektɪv ˈmeməriz/", "meaning": "Ký ức tập thể", "simple": "Shared memories and experiences belonging to a group or community.", "collocations": [{"index": 1, "title": "COLLOCATION 1", "tag": "VĂN HOÁ", "phrase": "preserve collective memories", "meaning": "gìn giữ ký ức tập thể", "example": "Historic buildings help preserve collective memories of a community.", "note": "Dùng tốt cho bài về di sản, cộng đồng và bản sắc.", "translation": "Các công trình lịch sử giúp gìn giữ ký ức tập thể của một cộng đồng."}, {"index": 2, "title": "COLLOCATION 2", "tag": "XÃ HỘI", "phrase": "shared collective memories", "meaning": "những ký ức tập thể được chia sẻ", "example": "Festivals strengthen shared collective memories among local people.", "note": "Phù hợp khi nói về vai trò của truyền thống và lễ hội.", "translation": "Các lễ hội củng cố những ký ức tập thể được chia sẻ giữa người dân địa phương."}]}, {"id": 11, "word": "Technological progress", "ipa": "/ˌteknəˈlɒdʒɪkl ˈprəʊɡres/", "meaning": "Sự tiến bộ công nghệ", "simple": "The development and improvement of technology over time.", "collocations": [{"index": 1, "title": "COLLOCATION 1", "tag": "CÔNG NGHỆ", "phrase": "rapid technological progress", "meaning": "tiến bộ công nghệ nhanh", "example": "Rapid technological progress has made online learning more accessible.", "note": "Dùng cho bài về giáo dục, việc làm và thay đổi hiện đại.", "translation": "Tiến bộ công nghệ nhanh đã giúp việc học trực tuyến trở nên dễ tiếp cận hơn."}, {"index": 2, "title": "COLLOCATION 2", "tag": "LỢI ÍCH", "phrase": "benefit from technological progress", "meaning": "hưởng lợi từ tiến bộ công nghệ", "example": "Both cities and villages can benefit from technological progress.", "note": "Hợp để nêu lợi ích trong Writing Task 2.", "translation": "Cả thành phố và nông thôn đều có thể hưởng lợi từ tiến bộ công nghệ."}]}, {"id": 12, "word": "Digital systems", "ipa": "/ˈdɪdʒɪtl ˈsɪstəmz/", "meaning": "Hệ thống kỹ thuật số", "simple": "Computer-based systems used to store, process, or share information.", "collocations": [{"index": 1, "title": "COLLOCATION 1", "tag": "HỆ THỐNG", "phrase": "rely on digital systems", "meaning": "phụ thuộc vào hệ thống kỹ thuật số", "example": "Modern banks rely on digital systems for daily operations.", "note": "Dùng khi nói về dịch vụ, công việc và tiện ích hiện đại.", "translation": "Các ngân hàng hiện đại phụ thuộc vào các hệ thống kỹ thuật số cho hoạt động hằng ngày."}, {"index": 2, "title": "COLLOCATION 2", "tag": "PHÁT TRIỂN", "phrase": "develop digital systems", "meaning": "phát triển các hệ thống kỹ thuật số", "example": "Schools should develop digital systems that support flexible learning.", "note": "Hợp với đề về giáo dục và chuyển đổi số.", "translation": "Trường học nên phát triển các hệ thống kỹ thuật số hỗ trợ việc học linh hoạt."}]}, {"id": 13, "word": "Technological prosperity", "ipa": "/ˌteknəˈlɒdʒɪkl prɒˈsperəti/", "meaning": "Sự phát triển/thịnh vượng nhờ công nghệ", "simple": "Success and growth created through technological development.", "collocations": [{"index": 1, "title": "COLLOCATION 1", "tag": "QUỐC GIA", "phrase": "achieve technological prosperity", "meaning": "đạt được sự thịnh vượng nhờ công nghệ", "example": "Some countries achieve technological prosperity through strong research policies.", "note": "Phù hợp với chủ đề đầu tư cho khoa học và công nghệ.", "translation": "Một số quốc gia đạt được sự thịnh vượng về công nghệ nhờ các chính sách nghiên cứu mạnh mẽ."}, {"index": 2, "title": "COLLOCATION 2", "tag": "KINH TẾ", "phrase": "contribute to technological prosperity", "meaning": "góp phần vào thịnh vượng công nghệ", "example": "Skilled workers contribute to technological prosperity.", "note": "Dùng tốt cho đề về giáo dục nghề nghiệp và nguồn nhân lực.", "translation": "Nguồn lao động có kỹ năng góp phần vào sự thịnh vượng công nghệ."}]}, {"id": 14, "word": "Corporate innovation", "ipa": "/ˈkɔːpərət ˌɪnəˈveɪʃən/", "meaning": "Sự đổi mới trong doanh nghiệp", "simple": "New ideas, products, or methods developed by companies.", "collocations": [{"index": 1, "title": "COLLOCATION 1", "tag": "DOANH NGHIỆP", "phrase": "promote corporate innovation", "meaning": "thúc đẩy đổi mới trong doanh nghiệp", "example": "Tax incentives can promote corporate innovation.", "note": "Dùng cho bài về kinh doanh, cạnh tranh và chính sách kinh tế.", "translation": "Các ưu đãi thuế có thể thúc đẩy đổi mới trong doanh nghiệp."}, {"index": 2, "title": "COLLOCATION 2", "tag": "ĐẦU TƯ", "phrase": "invest in corporate innovation", "meaning": "đầu tư vào đổi mới doanh nghiệp", "example": "Large firms often invest in corporate innovation to stay competitive.", "note": "Hợp với chủ đề chiến lược kinh doanh và nghiên cứu phát triển.", "translation": "Các công ty lớn thường đầu tư vào đổi mới doanh nghiệp để duy trì sức cạnh tranh."}]}, {"id": 15, "word": "Historical significance", "ipa": "/hɪˈstɒrɪkl sɪɡˈnɪfɪkəns/", "meaning": "Ý nghĩa lịch sử", "simple": "The importance of something because of its connection with history.", "collocations": [{"index": 1, "title": "COLLOCATION 1", "tag": "DI SẢN", "phrase": "have historical significance", "meaning": "có ý nghĩa lịch sử", "example": "The old bridge has historical significance for local residents.", "note": "Dùng cho bài nói về di tích, bảo tồn hoặc du lịch.", "translation": "Cây cầu cũ có ý nghĩa lịch sử đối với người dân địa phương."}, {"index": 2, "title": "COLLOCATION 2", "tag": "NHẬN THỨC", "phrase": "recognise historical significance", "meaning": "nhận ra ý nghĩa lịch sử", "example": "Young people should recognise historical significance in public spaces.", "note": "Phù hợp với lập luận về giáo dục lịch sử.", "translation": "Người trẻ nên nhận ra ý nghĩa lịch sử trong các không gian công cộng."}]}, {"id": 16, "word": "Suburban environments", "ipa": "/səˈbɜːbən ɪnˈvaɪrənmənts/", "meaning": "Môi trường/khu vực ngoại ô", "simple": "Residential areas located outside city centres.", "collocations": [{"index": 1, "title": "COLLOCATION 1", "tag": "LỐI SỐNG", "phrase": "live in suburban environments", "meaning": "sống ở môi trường ngoại ô", "example": "Many families prefer to live in suburban environments.", "note": "Dùng khi so sánh cuộc sống thành thị và ngoại ô.", "translation": "Nhiều gia đình thích sống ở môi trường ngoại ô."}, {"index": 2, "title": "COLLOCATION 2", "tag": "QUY HOẠCH", "phrase": "develop suburban environments", "meaning": "phát triển các khu vực ngoại ô", "example": "Authorities need to develop suburban environments carefully.", "note": "Hợp cho bài về quy hoạch đô thị và nhà ở.", "translation": "Chính quyền cần phát triển các khu vực ngoại ô một cách cẩn trọng."}]}, {"id": 17, "word": "Functional aspects", "ipa": "/ˈfʌŋkʃənl ˈæspekts/", "meaning": "Các khía cạnh mang tính chức năng/thực tiễn", "simple": "The practical purposes or uses of something.", "collocations": [{"index": 1, "title": "COLLOCATION 1", "tag": "THIẾT KẾ", "phrase": "focus on functional aspects", "meaning": "tập trung vào các khía cạnh chức năng", "example": "Architects should focus on functional aspects as well as appearance.", "note": "Dùng khi nói về thiết kế, kiến trúc và sản phẩm.", "translation": "Các kiến trúc sư nên chú trọng đến các khía cạnh chức năng cũng như vẻ bề ngoài."}, {"index": 2, "title": "COLLOCATION 2", "tag": "THỰC TẾ", "phrase": "practical and functional aspects", "meaning": "những khía cạnh thực tế và chức năng", "example": "Consumers often consider the practical and functional aspects of a device.", "note": "Phù hợp với chủ đề mua sắm, công nghệ và nhu cầu người dùng.", "translation": "Người tiêu dùng thường cân nhắc những khía cạnh thực tế và chức năng của một thiết bị."}]}, {"id": 18, "word": "Historical foundations", "ipa": "/hɪˈstɒrɪkl faʊnˈdeɪʃənz/", "meaning": "Nền tảng lịch sử", "simple": "The historical events or conditions that support the development of something.", "collocations": [{"index": 1, "title": "COLLOCATION 1", "tag": "LỊCH SỬ", "phrase": "build on historical foundations", "meaning": "xây dựng trên nền tảng lịch sử", "example": "Modern cities often build on historical foundations.", "note": "Dùng trong bài về phát triển đô thị và di sản.", "translation": "Các thành phố hiện đại thường được xây dựng trên những nền tảng lịch sử."}, {"index": 2, "title": "COLLOCATION 2", "tag": "NHẬN THỨC", "phrase": "lack historical foundations", "meaning": "thiếu nền tảng lịch sử", "example": "New districts may seem modern but they do not lack historical foundations.", "note": "Hợp để nhấn mạnh rằng hiện tại luôn gắn với quá khứ.", "translation": "Những khu mới có thể trông hiện đại nhưng không phải là không có nền tảng lịch sử."}]}, {"id": 19, "word": "Contemporary landscapes", "ipa": "/kənˈtempərəri ˈlændskeɪps/", "meaning": "Cảnh quan hiện đại/đương đại", "simple": "Modern physical environments shaped by current development.", "collocations": [{"index": 1, "title": "COLLOCATION 1", "tag": "ĐÔ THỊ", "phrase": "shape contemporary landscapes", "meaning": "định hình cảnh quan đương đại", "example": "Transport projects shape contemporary landscapes.", "note": "Dùng cho chủ đề cơ sở hạ tầng và thay đổi đô thị.", "translation": "Các dự án giao thông định hình cảnh quan đương đại."}, {"index": 2, "title": "COLLOCATION 2", "tag": "THAY ĐỔI", "phrase": "transform contemporary landscapes", "meaning": "biến đổi cảnh quan đương đại", "example": "Population growth can transform contemporary landscapes quickly.", "note": "Phù hợp khi mô tả tác động của hiện đại hoá.", "translation": "Sự gia tăng dân số có thể nhanh chóng biến đổi cảnh quan đương đại."}]}, {"id": 20, "word": "Ecological systems", "ipa": "/ˌiːkəˈlɒdʒɪkl ˈsɪstəmz/", "meaning": "Hệ thống sinh thái", "simple": "Networks of living organisms and their environment.", "collocations": [{"index": 1, "title": "COLLOCATION 1", "tag": "BẢO TỒN", "phrase": "protect ecological systems", "meaning": "bảo vệ các hệ sinh thái", "example": "Governments must protect ecological systems near industrial zones.", "note": "Dùng cho bài về môi trường và trách nhiệm của chính phủ.", "translation": "Chính phủ phải bảo vệ các hệ sinh thái gần các khu công nghiệp."}, {"index": 2, "title": "COLLOCATION 2", "tag": "PHỤC HỒI", "phrase": "restore ecological systems", "meaning": "phục hồi các hệ sinh thái", "example": "Community projects can restore ecological systems over time.", "note": "Hợp với đề về giải pháp môi trường.", "translation": "Các dự án cộng đồng có thể phục hồi các hệ sinh thái theo thời gian."}]}, {"id": 21, "word": "Agricultural landscapes", "ipa": "/ˌæɡrɪˈkʌltʃərəl ˈlændskeɪps/", "meaning": "Cảnh quan nông nghiệp", "simple": "Areas shaped by farming activities and rural life.", "collocations": [{"index": 1, "title": "COLLOCATION 1", "tag": "NÔNG THÔN", "phrase": "preserve agricultural landscapes", "meaning": "gìn giữ cảnh quan nông nghiệp", "example": "Eco-tourism can preserve agricultural landscapes in rural areas.", "note": "Dùng khi nói về nông thôn, du lịch và bảo tồn.", "translation": "Du lịch sinh thái có thể gìn giữ cảnh quan nông nghiệp ở các vùng nông thôn."}, {"index": 2, "title": "COLLOCATION 2", "tag": "ĐÔ THỊ HOÁ", "phrase": "transform agricultural landscapes", "meaning": "biến đổi cảnh quan nông nghiệp", "example": "Urban sprawl can transform agricultural landscapes rapidly.", "note": "Phù hợp với chủ đề mở rộng thành phố.", "translation": "Sự lan rộng đô thị có thể nhanh chóng biến đổi cảnh quan nông nghiệp."}]}, {"id": 22, "word": "Technological dominance", "ipa": "/ˌteknəˈlɒdʒɪkl ˈdɒmɪnəns/", "meaning": "Sự thống trị của công nghệ", "simple": "A situation where technology becomes the most influential factor.", "collocations": [{"index": 1, "title": "COLLOCATION 1", "tag": "CẠNH TRANH", "phrase": "maintain technological dominance", "meaning": "duy trì sự thống trị công nghệ", "example": "Major companies work hard to maintain technological dominance.", "note": "Dùng cho bài về cạnh tranh toàn cầu và doanh nghiệp lớn.", "translation": "Các công ty lớn nỗ lực duy trì vị thế thống trị về công nghệ."}, {"index": 2, "title": "COLLOCATION 2", "tag": "THÁCH THỨC", "phrase": "challenge technological dominance", "meaning": "thách thức sự thống trị công nghệ", "example": "New start-ups can challenge technological dominance.", "note": "Hợp với chủ đề cạnh tranh thị trường và đổi mới.", "translation": "Các công ty khởi nghiệp mới có thể thách thức sự thống trị công nghệ."}]}, {"id": 23, "word": "Material foundations", "ipa": "/məˈtɪəriəl faʊnˈdeɪʃənz/", "meaning": "Nền tảng vật chất", "simple": "Physical resources and structures needed to support something.", "collocations": [{"index": 1, "title": "COLLOCATION 1", "tag": "NỀN TẢNG", "phrase": "rely on material foundations", "meaning": "phụ thuộc vào nền tảng vật chất", "example": "Digital services still rely on material foundations such as energy and equipment.", "note": "Dùng để nhấn mạnh mặt vật chất của công nghệ hiện đại.", "translation": "Các dịch vụ số vẫn phụ thuộc vào những nền tảng vật chất như năng lượng và thiết bị."}, {"index": 2, "title": "COLLOCATION 2", "tag": "HẠ TẦNG", "phrase": "provide material foundations", "meaning": "cung cấp nền tảng vật chất", "example": "Roads and electricity provide material foundations for development.", "note": "Phù hợp với bài về phát triển cơ sở hạ tầng.", "translation": "Đường sá và điện lực cung cấp nền tảng vật chất cho sự phát triển."}]}, {"id": 24, "word": "Physical infrastructure", "ipa": "/ˈfɪzɪkl ˌɪnfrəˈstrʌktʃə(r)/", "meaning": "Cơ sở hạ tầng vật chất", "simple": "Buildings, roads, networks, and physical systems supporting society.", "collocations": [{"index": 1, "title": "COLLOCATION 1", "tag": "HẠ TẦNG", "phrase": "improve physical infrastructure", "meaning": "cải thiện cơ sở hạ tầng vật chất", "example": "Poor regions need to improve physical infrastructure urgently.", "note": "Dùng tốt cho bài về giao thông, đô thị và bất bình đẳng.", "translation": "Các vùng khó khăn cần khẩn trương cải thiện cơ sở hạ tầng vật chất."}, {"index": 2, "title": "COLLOCATION 2", "tag": "ĐẦU TƯ", "phrase": "invest in physical infrastructure", "meaning": "đầu tư vào cơ sở hạ tầng vật chất", "example": "Governments should invest in physical infrastructure in remote areas.", "note": "Hợp với lập luận về phát triển cân bằng vùng miền.", "translation": "Chính phủ nên đầu tư vào cơ sở hạ tầng vật chất ở các vùng xa xôi."}]}, {"id": 25, "word": "Natural resources", "ipa": "/ˈnætʃrəl rɪˈsɔːsɪz/", "meaning": "Tài nguyên thiên nhiên", "simple": "Materials and resources provided by nature.", "collocations": [{"index": 1, "title": "COLLOCATION 1", "tag": "MÔI TRƯỜNG", "phrase": "conserve natural resources", "meaning": "bảo tồn tài nguyên thiên nhiên", "example": "Individuals should conserve natural resources by reducing waste.", "note": "Dùng cho bài về trách nhiệm cá nhân và môi trường.", "translation": "Mỗi cá nhân nên bảo tồn tài nguyên thiên nhiên bằng cách giảm lãng phí."}, {"index": 2, "title": "COLLOCATION 2", "tag": "KHAI THÁC", "phrase": "exploit natural resources", "meaning": "khai thác tài nguyên thiên nhiên", "example": "Some countries exploit natural resources to boost the economy.", "note": "Phù hợp khi nêu hai mặt lợi - hại của phát triển kinh tế.", "translation": "Một số quốc gia khai thác tài nguyên thiên nhiên để thúc đẩy nền kinh tế."}]}, {"id": 26, "word": "Historical narrative", "ipa": "/hɪˈstɒrɪkl ˈnærətɪv/", "meaning": "Câu chuyện lịch sử; cách nhìn nhận lịch sử", "simple": "The way events, people, and places from the past are connected and explained.", "collocations": [{"index": 1, "title": "COLLOCATION 1", "tag": "LỊCH SỬ", "phrase": "challenge the historical narrative", "meaning": "thách thức cách diễn giải lịch sử", "example": "New research can challenge the historical narrative taught in schools.", "note": "Dùng cho bài về lịch sử, giáo dục và góc nhìn xã hội.", "translation": "Nghiên cứu mới có thể thách thức cách diễn giải lịch sử được dạy trong trường học."}, {"index": 2, "title": "COLLOCATION 2", "tag": "DIỄN NGÔN", "phrase": "dominant historical narrative", "meaning": "cách kể lịch sử mang tính chủ đạo", "example": "Textbooks often present a dominant historical narrative.", "note": "Phù hợp khi phân tích ảnh hưởng của giáo dục và truyền thông.", "translation": "Sách giáo khoa thường đưa ra một cách kể lịch sử mang tính chủ đạo."}]}, {"id": 27, "word": "Historical significance", "ipa": "/hɪˈstɒrɪkl sɪɡˈnɪfɪkəns/", "meaning": "Ý nghĩa lịch sử", "simple": "The importance of a place, event, or object because of its connection with history.", "collocations": [{"index": 1, "title": "COLLOCATION 1", "tag": "DI TÍCH", "phrase": "a site of historical significance", "meaning": "một địa điểm có ý nghĩa lịch sử", "example": "The temple is a site of historical significance.", "note": "Dùng trong Speaking hoặc Writing về du lịch và di sản.", "translation": "Ngôi đền là một địa điểm có ý nghĩa lịch sử."}, {"index": 2, "title": "COLLOCATION 2", "tag": "BẢO TỒN", "phrase": "preserve historical significance", "meaning": "giữ gìn ý nghĩa lịch sử", "example": "Renovation should preserve historical significance.", "note": "Hợp khi nói về cải tạo công trình cũ.", "translation": "Việc cải tạo nên giữ gìn ý nghĩa lịch sử."}]}, {"id": 28, "word": "Historical dimensions", "ipa": "/hɪˈstɒrɪkl daɪˈmenʃənz/", "meaning": "Các khía cạnh lịch sử", "simple": "The historical aspects or meanings connected to a place or issue.", "collocations": [{"index": 1, "title": "COLLOCATION 1", "tag": "NGHIÊN CỨU", "phrase": "explore historical dimensions", "meaning": "khám phá các khía cạnh lịch sử", "example": "Good documentaries explore historical dimensions of social change.", "note": "Dùng cho bài phân tích xã hội, truyền thông và lịch sử.", "translation": "Những bộ phim tài liệu hay sẽ khám phá các khía cạnh lịch sử của sự thay đổi xã hội."}, {"index": 2, "title": "COLLOCATION 2", "tag": "THỜ Ơ", "phrase": "ignore historical dimensions", "meaning": "bỏ qua các khía cạnh lịch sử", "example": "Planners should not ignore historical dimensions of a place.", "note": "Phù hợp khi phản biện các giải pháp quá đơn giản.", "translation": "Các nhà quy hoạch không nên bỏ qua các khía cạnh lịch sử của một địa điểm."}]}, {"id": 29, "word": "Cultural histories", "ipa": "/ˈkʌltʃərəl ˈhɪstəriz/", "meaning": "Lịch sử văn hoá", "simple": "The stories, traditions, and experiences that shape a culture over time.", "collocations": [{"index": 1, "title": "COLLOCATION 1", "tag": "VĂN HOÁ", "phrase": "preserve cultural histories", "meaning": "gìn giữ lịch sử văn hoá", "example": "Libraries and museums preserve cultural histories.", "note": "Dùng tốt cho chủ đề di sản, bảo tồn và giáo dục.", "translation": "Thư viện và bảo tàng gìn giữ lịch sử văn hoá."}, {"index": 2, "title": "COLLOCATION 2", "tag": "ĐA DẠNG", "phrase": "diverse cultural histories", "meaning": "những lịch sử văn hoá đa dạng", "example": "Large cities often reflect diverse cultural histories.", "note": "Hợp khi mô tả tính đa dạng của xã hội hiện đại.", "translation": "Các thành phố lớn thường phản ánh những lịch sử văn hoá đa dạng."}]}, {"id": 30, "word": "Accumulated experiences", "ipa": "/əˈkjuːmjəleɪtɪd ɪkˈspɪəriənsɪz/", "meaning": "Những kinh nghiệm tích luỹ", "simple": "Knowledge and experiences collected over a long period of time.", "collocations": [{"index": 1, "title": "COLLOCATION 1", "tag": "KINH NGHIỆM", "phrase": "draw on accumulated experiences", "meaning": "dựa vào kinh nghiệm tích luỹ", "example": "Older workers can draw on accumulated experiences in difficult situations.", "note": "Dùng cho chủ đề tuổi tác, việc làm và kỹ năng sống.", "translation": "Những lao động lớn tuổi có thể dựa vào kinh nghiệm tích luỹ trong các tình huống khó khăn."}, {"index": 2, "title": "COLLOCATION 2", "tag": "CỘNG ĐỒNG", "phrase": "reflect accumulated experiences", "meaning": "phản ánh kinh nghiệm tích luỹ", "example": "Traditional crafts reflect accumulated experiences of local communities.", "note": "Phù hợp với bài về truyền thống và tri thức bản địa.", "translation": "Các nghề thủ công truyền thống phản ánh kinh nghiệm tích luỹ của cộng đồng địa phương."}]}, {"id": 31, "word": "Indigenous communities", "ipa": "/ɪnˈdɪdʒənəs kəˈmjuːnətiz/", "meaning": "Cộng đồng bản địa", "simple": "Groups of people who have lived in a particular area for generations before modern development.", "collocations": [{"index": 1, "title": "COLLOCATION 1", "tag": "CỘNG ĐỒNG", "phrase": "support indigenous communities", "meaning": "hỗ trợ cộng đồng bản địa", "example": "Governments should support indigenous communities more effectively.", "note": "Dùng cho chủ đề bình đẳng, quyền lợi và phát triển cộng đồng.", "translation": "Chính phủ nên hỗ trợ các cộng đồng bản địa hiệu quả hơn."}, {"index": 2, "title": "COLLOCATION 2", "tag": "QUYỀN LỢI", "phrase": "rights of indigenous communities", "meaning": "quyền của cộng đồng bản địa", "example": "The rights of indigenous communities must be respected.", "note": "Hợp khi nói về công bằng xã hội và chính sách.", "translation": "Các quyền của cộng đồng bản địa cần được tôn trọng."}]}, {"id": 32, "word": "Environmental responsibility", "ipa": "/ɪnˌvaɪrənˈmentl rɪˌspɒnsəˈbɪləti/", "meaning": "Trách nhiệm với môi trường", "simple": "The duty to protect and care for the natural environment.", "collocations": [{"index": 1, "title": "COLLOCATION 1", "tag": "TRÁCH NHIỆM", "phrase": "show environmental responsibility", "meaning": "thể hiện trách nhiệm với môi trường", "example": "Companies should show environmental responsibility in production.", "note": "Dùng cho bài về vai trò doanh nghiệp và phát triển bền vững.", "translation": "Các công ty nên thể hiện trách nhiệm với môi trường trong sản xuất."}, {"index": 2, "title": "COLLOCATION 2", "tag": "GIÁO DỤC", "phrase": "promote environmental responsibility", "meaning": "thúc đẩy trách nhiệm môi trường", "example": "Schools can promote environmental responsibility from an early age.", "note": "Phù hợp với chủ đề giáo dục và hành vi sống xanh.", "translation": "Trường học có thể thúc đẩy trách nhiệm môi trường từ khi còn nhỏ."}]}, {"id": 33, "word": "Resource extraction", "ipa": "/rɪˈsɔːs ɪkˈstrækʃən/", "meaning": "Khai thác tài nguyên", "simple": "The process of taking natural resources from the environment.", "collocations": [{"index": 1, "title": "COLLOCATION 1", "tag": "KHAI THÁC", "phrase": "limit resource extraction", "meaning": "hạn chế khai thác tài nguyên", "example": "Strict laws can limit resource extraction in protected areas.", "note": "Dùng cho các bài về chính sách môi trường.", "translation": "Các luật nghiêm ngặt có thể hạn chế việc khai thác tài nguyên ở các khu vực được bảo vệ."}, {"index": 2, "title": "COLLOCATION 2", "tag": "CÔNG NGHIỆP", "phrase": "large-scale resource extraction", "meaning": "khai thác tài nguyên quy mô lớn", "example": "Large-scale resource extraction often affects local ecosystems.", "note": "Phù hợp khi nói về mặt trái của phát triển công nghiệp.", "translation": "Việc khai thác tài nguyên quy mô lớn thường ảnh hưởng đến các hệ sinh thái địa phương."}]}, {"id": 34, "word": "Ownership", "ipa": "/ˈəʊnəʃɪp/", "meaning": "Quyền sở hữu", "simple": "The legal or social idea that something belongs to someone.", "collocations": [{"index": 1, "title": "COLLOCATION 1", "tag": "TRÁCH NHIỆM", "phrase": "a sense of ownership", "meaning": "ý thức sở hữu/trách nhiệm", "example": "Students perform better when they have a sense of ownership.", "note": "Dùng cho bài về động lực, giáo dục và nơi làm việc.", "translation": "Học sinh học tốt hơn khi các em có ý thức sở hữu và trách nhiệm."}, {"index": 2, "title": "COLLOCATION 2", "tag": "TÀI SẢN", "phrase": "private ownership", "meaning": "quyền sở hữu tư nhân", "example": "Private ownership can encourage people to take better care of property.", "note": "Hợp cho chủ đề nhà ở, đất đai hoặc kinh tế.", "translation": "Quyền sở hữu tư nhân có thể khuyến khích con người chăm sóc tài sản tốt hơn."}]}, {"id": 35, "word": "Social activities", "ipa": "/ˈsəʊʃəl ækˈtɪvətiz/", "meaning": "Hoạt động xã hội", "simple": "Activities where people interact with others in a community.", "collocations": [{"index": 1, "title": "COLLOCATION 1", "tag": "CỘNG ĐỒNG", "phrase": "take part in social activities", "meaning": "tham gia các hoạt động xã hội", "example": "Teenagers should take part in social activities after school.", "note": "Dùng tốt cho bài về thanh thiếu niên và kỹ năng mềm.", "translation": "Thanh thiếu niên nên tham gia các hoạt động xã hội sau giờ học."}, {"index": 2, "title": "COLLOCATION 2", "tag": "TỔ CHỨC", "phrase": "organise social activities", "meaning": "tổ chức các hoạt động xã hội", "example": "Schools can organise social activities to improve teamwork.", "note": "Phù hợp với giáo dục và sự phát triển toàn diện.", "translation": "Trường học có thể tổ chức các hoạt động xã hội để cải thiện tinh thần làm việc nhóm."}]}, {"id": 36, "word": "Collective memories", "ipa": "/kəˈlektɪv ˈmeməriz/", "meaning": "Ký ức tập thể", "simple": "Shared memories and experiences of a group.", "collocations": [{"index": 1, "title": "COLLOCATION 1", "tag": "KÝ ỨC", "phrase": "shape collective memories", "meaning": "định hình ký ức tập thể", "example": "Major events often shape collective memories.", "note": "Dùng cho bài về lịch sử, truyền thông và xã hội.", "translation": "Các sự kiện lớn thường định hình ký ức tập thể."}, {"index": 2, "title": "COLLOCATION 2", "tag": "DI SẢN", "phrase": "become part of collective memories", "meaning": "trở thành một phần của ký ức tập thể", "example": "Traditional songs have become part of collective memories.", "note": "Hợp khi nói về văn hoá và truyền thống.", "translation": "Những bài hát truyền thống đã trở thành một phần của ký ức tập thể."}]}, {"id": 37, "word": "Inherited knowledge", "ipa": "/ɪnˈherɪtɪd ˈnɒlɪdʒ/", "meaning": "Tri thức được truyền lại", "simple": "Knowledge passed from previous generations.", "collocations": [{"index": 1, "title": "COLLOCATION 1", "tag": "TRUYỀN THỪA", "phrase": "pass on inherited knowledge", "meaning": "truyền lại tri thức được kế thừa", "example": "Parents should pass on inherited knowledge to the next generation.", "note": "Dùng tốt cho bài về gia đình, văn hoá và giáo dục.", "translation": "Cha mẹ nên truyền lại tri thức được kế thừa cho thế hệ sau."}, {"index": 2, "title": "COLLOCATION 2", "tag": "BẢO TỒN", "phrase": "preserve inherited knowledge", "meaning": "bảo tồn tri thức được truyền lại", "example": "Local museums help preserve inherited knowledge.", "note": "Phù hợp với chủ đề di sản và bản sắc cộng đồng.", "translation": "Các bảo tàng địa phương giúp bảo tồn tri thức được truyền lại."}]}, {"id": 38, "word": "Geographical names", "ipa": "/ˌdʒiːəˈɡræfɪkl neɪmz/", "meaning": "Tên địa lý", "simple": "Names given to places, rivers, mountains, or regions.", "collocations": [{"index": 1, "title": "COLLOCATION 1", "tag": "BẢN ĐỒ", "phrase": "preserve geographical names", "meaning": "giữ gìn tên địa lý", "example": "Official maps should preserve geographical names with cultural value.", "note": "Dùng cho bài về ngôn ngữ, văn hoá và lịch sử địa phương.", "translation": "Các bản đồ chính thức nên giữ gìn những tên địa lý có giá trị văn hoá."}, {"index": 2, "title": "COLLOCATION 2", "tag": "TRUYỀN THỐNG", "phrase": "traditional geographical names", "meaning": "những tên địa lý truyền thống", "example": "Traditional geographical names can reveal local history.", "note": "Hợp khi nói về giá trị văn hoá của ngôn ngữ.", "translation": "Những tên địa lý truyền thống có thể tiết lộ lịch sử địa phương."}]}, {"id": 39, "word": "Historical traces", "ipa": "/hɪˈstɒrɪkl treɪsɪz/", "meaning": "Dấu tích lịch sử", "simple": "Evidence or signs showing the existence of past events.", "collocations": [{"index": 1, "title": "COLLOCATION 1", "tag": "KHÁM PHÁ", "phrase": "discover historical traces", "meaning": "phát hiện các dấu tích lịch sử", "example": "Archaeologists continue to discover historical traces in the area.", "note": "Dùng cho bài về khảo cổ, du lịch hoặc bảo tồn.", "translation": "Các nhà khảo cổ vẫn tiếp tục phát hiện các dấu tích lịch sử trong khu vực này."}, {"index": 2, "title": "COLLOCATION 2", "tag": "BẢO TỒN", "phrase": "preserve historical traces", "meaning": "gìn giữ các dấu tích lịch sử", "example": "Cities should preserve historical traces instead of removing them.", "note": "Phù hợp khi tranh luận về hiện đại hoá và di sản.", "translation": "Các thành phố nên gìn giữ các dấu tích lịch sử thay vì xoá bỏ chúng."}]}, {"id": 40, "word": "Identity", "ipa": "/aɪˈdentəti/", "meaning": "Bản sắc; đặc điểm nhận diện", "simple": "The characteristics that define a person, group, or place.", "collocations": [{"index": 1, "title": "COLLOCATION 1", "tag": "BẢN SẮC", "phrase": "shape identity", "meaning": "định hình bản sắc", "example": "Family traditions play an important role in shaping identity.", "note": "Dùng rất tốt cho bài về cá nhân, văn hoá và xã hội.", "translation": "Các truyền thống gia đình đóng vai trò quan trọng trong việc định hình bản sắc."}, {"index": 2, "title": "COLLOCATION 2", "tag": "VĂN HOÁ", "phrase": "cultural identity", "meaning": "bản sắc văn hoá", "example": "Globalisation may weaken cultural identity in some communities.", "note": "Hợp với Task 2 về toàn cầu hoá và truyền thống.", "translation": "Toàn cầu hoá có thể làm suy yếu bản sắc văn hoá ở một số cộng đồng."}]}, {"id": 41, "word": "Relationships", "ipa": "/rɪˈleɪʃənʃɪps/", "meaning": "Các mối quan hệ; sự kết nối", "simple": "Connections between people, communities, or humans and the environment.", "collocations": [{"index": 1, "title": "COLLOCATION 1", "tag": "QUAN HỆ", "phrase": "build strong relationships", "meaning": "xây dựng các mối quan hệ bền vững", "example": "Team projects help students build strong relationships.", "note": "Dùng cho bài về kỹ năng xã hội, học tập và công việc.", "translation": "Các dự án nhóm giúp học sinh xây dựng những mối quan hệ bền vững."}, {"index": 2, "title": "COLLOCATION 2", "tag": "GẮN KẾT", "phrase": "maintain close relationships", "meaning": "duy trì các mối quan hệ gần gũi", "example": "Technology helps families maintain close relationships across long distances.", "note": "Phù hợp với chủ đề gia đình và công nghệ.", "translation": "Công nghệ giúp các gia đình duy trì những mối quan hệ gần gũi dù ở xa nhau."}]}, {"id": 42, "word": "Human civilisation", "ipa": "/ˈhjuːmən ˌsɪvəlaɪˈzeɪʃən/", "meaning": "Nền văn minh nhân loại", "simple": "Human societies and cultures developed throughout history.", "collocations": [{"index": 1, "title": "COLLOCATION 1", "tag": "LỊCH SỬ", "phrase": "the development of human civilisation", "meaning": "sự phát triển của nền văn minh nhân loại", "example": "Agriculture played a central role in the development of human civilisation.", "note": "Dùng tốt cho bài học thuật, lịch sử và xã hội.", "translation": "Nông nghiệp đóng vai trò trung tâm trong sự phát triển của nền văn minh nhân loại."}, {"index": 2, "title": "COLLOCATION 2", "tag": "HIỆN ĐẠI", "phrase": "modern human civilisation", "meaning": "nền văn minh nhân loại hiện đại", "example": "Modern human civilisation depends heavily on energy and technology.", "note": "Hợp với bài về tiến bộ và hệ quả hiện đại.", "translation": "Nền văn minh nhân loại hiện đại phụ thuộc nhiều vào năng lượng và công nghệ."}]}, {"id": 43, "word": "Previous communities", "ipa": "/ˈpriːviəs kəˈmjuːnətiz/", "meaning": "Các cộng đồng trước đây", "simple": "Groups of people who lived in a place before the current population.", "collocations": [{"index": 1, "title": "COLLOCATION 1", "tag": "LỊCH SỬ", "phrase": "respect previous communities", "meaning": "tôn trọng các cộng đồng trước đây", "example": "Urban planning should respect previous communities.", "note": "Dùng khi nói về phát triển có trách nhiệm.", "translation": "Quy hoạch đô thị nên tôn trọng các cộng đồng trước đây."}, {"index": 2, "title": "COLLOCATION 2", "tag": "DẤU VẾT", "phrase": "traces of previous communities", "meaning": "dấu vết của các cộng đồng trước đây", "example": "Old buildings reveal traces of previous communities.", "note": "Phù hợp với chủ đề lịch sử đô thị và bảo tồn.", "translation": "Những toà nhà cũ cho thấy dấu vết của các cộng đồng trước đây."}]}, {"id": 44, "word": "Long-standing relationships", "ipa": "/ˌlɒŋ ˈstændɪŋ rɪˈleɪʃənʃɪps/", "meaning": "Những mối quan hệ lâu đời", "simple": "Connections that have existed for a long period of time.", "collocations": [{"index": 1, "title": "COLLOCATION 1", "tag": "GẮN BÓ", "phrase": "maintain long-standing relationships", "meaning": "duy trì những mối quan hệ lâu đời", "example": "Rural families often maintain long-standing relationships with neighbours.", "note": "Dùng cho bài về cộng đồng và lối sống.", "translation": "Các gia đình ở nông thôn thường duy trì những mối quan hệ lâu đời với hàng xóm."}, {"index": 2, "title": "COLLOCATION 2", "tag": "THIÊN NHIÊN", "phrase": "long-standing relationships with the land", "meaning": "mối quan hệ lâu đời với đất đai", "example": "Farmers usually have long-standing relationships with the land.", "note": "Hợp với bài về nông nghiệp, môi trường và bản sắc.", "translation": "Nông dân thường có mối quan hệ lâu đời với đất đai."}]}, {"id": 45, "word": "Cultural connections", "ipa": "/ˈkʌltʃərəl kəˈnekʃənz/", "meaning": "Sự kết nối văn hoá", "simple": "Links between people, places, and traditions based on shared culture.", "collocations": [{"index": 1, "title": "COLLOCATION 1", "tag": "VĂN HOÁ", "phrase": "strengthen cultural connections", "meaning": "tăng cường sự kết nối văn hoá", "example": "International exchange programmes strengthen cultural connections.", "note": "Dùng tốt cho đề về du học, du lịch và toàn cầu hoá.", "translation": "Các chương trình trao đổi quốc tế tăng cường sự kết nối văn hoá."}, {"index": 2, "title": "COLLOCATION 2", "tag": "ĐỨT GÃY", "phrase": "lose cultural connections", "meaning": "mất đi sự kết nối văn hoá", "example": "Young migrants may lose cultural connections over time.", "note": "Phù hợp khi nêu hệ quả của di cư hoặc hiện đại hoá.", "translation": "Những người di cư trẻ tuổi có thể dần mất đi sự kết nối văn hoá."}]}, {"id": 46, "word": "Meaningful knowledge", "ipa": "/ˈmiːnɪŋfəl ˈnɒlɪdʒ/", "meaning": "Tri thức có ý nghĩa", "simple": "Knowledge that develops through understanding, experience, and deeper awareness.", "collocations": [{"index": 1, "title": "COLLOCATION 1", "tag": "GIÁO DỤC", "phrase": "develop meaningful knowledge", "meaning": "phát triển tri thức có ý nghĩa", "example": "Schools should help learners develop meaningful knowledge.", "note": "Dùng cho bài về chất lượng giáo dục và phương pháp học.", "translation": "Trường học nên giúp người học phát triển tri thức có ý nghĩa."}, {"index": 2, "title": "COLLOCATION 2", "tag": "TRẢI NGHIỆM", "phrase": "gain meaningful knowledge", "meaning": "đạt được tri thức có ý nghĩa", "example": "Students gain meaningful knowledge through projects and discussion.", "note": "Hợp để lập luận ủng hộ học qua trải nghiệm.", "translation": "Học sinh đạt được tri thức có ý nghĩa thông qua dự án và thảo luận."}]}, {"id": 47, "word": "Direct experience", "ipa": "/dəˈrekt ɪkˈspɪəriəns/", "meaning": "Trải nghiệm trực tiếp", "simple": "Knowledge gained by personally seeing, doing, or experiencing something.", "collocations": [{"index": 1, "title": "COLLOCATION 1", "tag": "TRẢI NGHIỆM", "phrase": "gain direct experience", "meaning": "có được trải nghiệm trực tiếp", "example": "Voluntary work allows students to gain direct experience.", "note": "Dùng tốt cho chủ đề thực tập, trải nghiệm và kỹ năng sống.", "translation": "Hoạt động tình nguyện cho phép học sinh có được trải nghiệm trực tiếp."}, {"index": 2, "title": "COLLOCATION 2", "tag": "HỌC TẬP", "phrase": "learn through direct experience", "meaning": "học thông qua trải nghiệm trực tiếp", "example": "Children often learn best through direct experience.", "note": "Phù hợp cho bài về giáo dục thực hành.", "translation": "Trẻ em thường học tốt nhất thông qua trải nghiệm trực tiếp."}]}, {"id": 48, "word": "Sustained observation", "ipa": "/səˈsteɪnd ˌɒbzəˈveɪʃən/", "meaning": "Sự quan sát liên tục/lâu dài", "simple": "Careful observation over a long period of time.", "collocations": [{"index": 1, "title": "COLLOCATION 1", "tag": "NGHIÊN CỨU", "phrase": "require sustained observation", "meaning": "đòi hỏi sự quan sát lâu dài", "example": "Climate research requires sustained observation over many years.", "note": "Dùng cho chủ đề khoa học và nghiên cứu học thuật.", "translation": "Nghiên cứu khí hậu đòi hỏi sự quan sát lâu dài qua nhiều năm."}, {"index": 2, "title": "COLLOCATION 2", "tag": "HIỂU BIẾT", "phrase": "develop through sustained observation", "meaning": "phát triển thông qua quan sát lâu dài", "example": "True understanding often develops through sustained observation.", "note": "Hợp khi nói về quá trình học tập sâu.", "translation": "Sự hiểu biết thực sự thường phát triển thông qua quan sát lâu dài."}]}, {"id": 49, "word": "Curiosity", "ipa": "/ˌkjʊəriˈɒsəti/", "meaning": "Sự tò mò; ham tìm hiểu", "simple": "A desire to learn or discover more about something.", "collocations": [{"index": 1, "title": "COLLOCATION 1", "tag": "GIÁO DỤC", "phrase": "stimulate curiosity", "meaning": "khơi gợi sự tò mò", "example": "Good teachers know how to stimulate curiosity in the classroom.", "note": "Dùng rất tốt cho bài về giáo dục và sáng tạo.", "translation": "Những giáo viên giỏi biết cách khơi gợi sự tò mò trong lớp học."}, {"index": 2, "title": "COLLOCATION 2", "tag": "TỰ NHIÊN", "phrase": "natural curiosity", "meaning": "sự tò mò tự nhiên", "example": "Children show natural curiosity about the world around them.", "note": "Hợp cho bài nói về trẻ em và học tập.", "translation": "Trẻ em thể hiện sự tò mò tự nhiên về thế giới xung quanh."}]}, {"id": 50, "word": "Perception", "ipa": "/pəˈsepʃən/", "meaning": "Nhận thức; cách nhìn nhận", "simple": "The way people understand or interpret something.", "collocations": [{"index": 1, "title": "COLLOCATION 1", "tag": "TRUYỀN THÔNG", "phrase": "change public perception", "meaning": "thay đổi nhận thức công chúng", "example": "Advertising can change public perception of healthy lifestyles.", "note": "Dùng cho bài về truyền thông, y tế hoặc xã hội.", "translation": "Quảng cáo có thể thay đổi nhận thức của công chúng về lối sống lành mạnh."}, {"index": 2, "title": "COLLOCATION 2", "tag": "ẢNH HƯỞNG", "phrase": "influence perception", "meaning": "ảnh hưởng đến nhận thức", "example": "Social media strongly influences perception among teenagers.", "note": "Phù hợp với đề về mạng xã hội và truyền thông.", "translation": "Mạng xã hội ảnh hưởng mạnh đến nhận thức của thanh thiếu niên."}]}];
+let currentIndex = 0;
+let showingBack = false;
+let activeMode = 0;
+let hideVietnamese = false;
+const savedKey = 'aptis_sv_50_collocation_saved';
+let saved = new Set(JSON.parse(localStorage.getItem(savedKey) || '[]'));
+
+const shell = document.getElementById('cardShell');
+const searchInput = document.getElementById('searchInput');
+const cardSelect = document.getElementById('cardSelect');
+const wordList = document.getElementById('wordList');
+const jumpBtn = document.getElementById('jumpBtn');
+const toggleVnBtn = document.getElementById('toggleVnBtn');
+document.getElementById('randomTopBtn').addEventListener('click', randomCard);
+document.getElementById('randomBigBtn').addEventListener('click', randomCard);
+
+function esc(s){return String(s ?? '').replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
+function code(id){return `V${String(id).padStart(3,'0')}`}
+function saveLabel(id){return saved.has(id) ? '★ Save' : '☆ Save'}
+function fillOptions(){
+  wordList.innerHTML = cards.map(c => `<option value="${code(c.id)} – ${esc(c.word)}"></option><option value="${esc(c.word)}"></option>`).join('');
+  cardSelect.innerHTML = '<option value="">Select</option>' + cards.map((c,i)=>`<option value="${i}">${code(c.id)} · ${esc(c.word)}</option>`).join('');
+}
+function highlightWord(sentence, word){
+  const safe = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return esc(sentence).replace(new RegExp(safe,'ig'), m => `<mark>${m}</mark>`);
+}
+function render(){
+  const c = cards[currentIndex];
+  const wrapClass = 'card-shell' + (hideVietnamese ? ' hidden-vn' : '');
+  shell.className = wrapClass;
+  if(!showingBack){
+    shell.innerHTML = `
+      <div class="card-inner">
+        <div class="topbar">
+          <div>
+            <div class="pill">Front Side</div>
+            <div class="top-info">Test 1 · Set 1: Core Foundations</div>
+          </div>
+          <div class="right-col">
+            <button class="btn btn-pink" id="saveBtn">${saveLabel(c.id)}</button>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="label">Focus Word</div>
+        <div class="word">${esc(c.word)}</div>
+        <div class="ipa">${esc(c.ipa)}</div>
+        <div class="definition"><span class="definition-vn">${esc(c.word)} nghĩa là ${esc((c.meaning || '').toLowerCase())}. </span>${esc(c.simple)}</div>
+        <div class="recall">
+          <div class="title">Try to recall</div>
+          <ul>
+            <li>Collocation 1</li>
+            <li>Collocation 2</li>
+          </ul>
+          <div class="note">Nhấn Flip để xem cả 2 collocations, cách dùng và ví dụ band IELTS 6.0+.</div>
+        </div>
+        <div class="action-row">
+          <button class="btn btn-blue" id="speakWordBtn">🔊 Word</button>
+          <button class="btn btn-pink" id="flipBtn">Lật thẻ ↻</button>
+        </div>
+        <div class="divider"></div>
+        <div class="bottom-nav">
+          <div class="hint">Phím tắt: Space = flip · ← → = chuyển card</div>
+          <div class="nav-buttons">
+            <button class="btn" id="prevBtn">← Previous</button>
+            <button class="btn btn-blue" id="nextBtn">Next →</button>
+          </div>
+        </div>
+      </div>`;
+  } else {
+    const item = c.collocations[activeMode];
+    shell.innerHTML = `
+      <div class="card-inner">
+        <div class="topbar">
+          <div>
+            <div class="pill">Back Side</div>
+            <div class="top-info">${esc(c.word)} ${esc(c.ipa)} · ${code(c.id)}</div>
+          </div>
+          <div class="right-col">
+            <button class="btn btn-pink" id="flipBackBtn">↺ Lật lại</button>
+            <button class="btn btn-pink" id="saveBtn">${saveLabel(c.id)}</button>
+          </div>
+        </div>
+        <div class="divider"></div>
+
+        <div class="mode-tabs">
+          <button class="btn ${activeMode===0 ? 'btn-blue' : ''} mode-btn" id="mode1Btn">Collocation 1</button>
+          <button class="btn ${activeMode===1 ? 'btn-blue' : ''} mode-btn" id="mode2Btn">Collocation 2</button>
+        </div>
+
+        <div class="coll-panel">
+          <div class="section-red">${item.title}</div>
+          <div class="coll-tag">${esc(item.tag)}</div>
+          <div class="phrase">${esc(item.phrase)}</div>
+          <div class="back-ipa">${esc(c.ipa)}</div>
+          <div class="meaning-line">${esc(item.meaning)}</div>
+          <div class="example">${highlightWord(item.example, c.word)}</div>
+          <div class="vn-box">
+            <div class="label-small">Tiếng Việt</div>
+            <div class="vn-text">${esc(item.translation)}</div>
+          </div>
+          <div class="vn-box" style="background:#f8f5ff; margin-top:0; min-height:auto;">
+            <div class="label-small">IELTS 6.0+ Use</div>
+            <div class="vn-text" style="font-style:normal;">${esc(item.note)}</div>
+          </div>
+          <div class="back-bottom action-row">
+            <button class="btn btn-blue" id="speakPhraseBtn">🔊 Phrase ${item.index}</button>
+            <button class="btn btn-pink" id="flipBackBtn2">↺ Lật lại</button>
+            <button class="btn" id="prevBtn">← Previous</button>
+            <button class="btn btn-blue" id="nextBtn">Next word →</button>
+          </div>
+        </div>
+      </div>`;
+  }
+  cardSelect.value = String(currentIndex);
+  bindActions();
+  requestAnimationFrame(()=>{ document.getElementById('cardShell').scrollIntoView({behavior:'smooth', block:'start'}); });
+}
+function bindActions(){
+  document.getElementById('saveBtn')?.addEventListener('click', toggleSave);
+  document.getElementById('flipBtn')?.addEventListener('click', ()=>{showingBack=true;activeMode=0;render()});
+  document.getElementById('flipBackBtn')?.addEventListener('click', ()=>{showingBack=false;render()});
+  document.getElementById('flipBackBtn2')?.addEventListener('click', ()=>{showingBack=false;render()});
+  document.getElementById('prevBtn')?.addEventListener('click', prevCard);
+  document.getElementById('nextBtn')?.addEventListener('click', nextCard);
+  document.getElementById('speakWordBtn')?.addEventListener('click', ()=>speak(cards[currentIndex].word));
+  document.getElementById('speakPhraseBtn')?.addEventListener('click', ()=>{
+    const item = cards[currentIndex].collocations[activeMode];
+    speak(item.phrase + '. ' + item.example);
+  });
+  document.getElementById('mode1Btn')?.addEventListener('click', ()=>{activeMode=0;render()});
+  document.getElementById('mode2Btn')?.addEventListener('click', ()=>{activeMode=1;render()});
+}
+function speak(text){
+  if(!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'en-US';
+  u.rate = 0.95;
+  window.speechSynthesis.speak(u);
+}
+function toggleSave(){
+  const id = cards[currentIndex].id;
+  if(saved.has(id)) saved.delete(id); else saved.add(id);
+  localStorage.setItem(savedKey, JSON.stringify([...saved]));
+  render();
+}
+function prevCard(){currentIndex=(currentIndex-1+cards.length)%cards.length;showingBack=false;activeMode=0;render()}
+function nextCard(){currentIndex=(currentIndex+1)%cards.length;showingBack=false;activeMode=0;render()}
+function randomCard(){
+  let n=currentIndex;
+  while(cards.length>1 && n===currentIndex) n=Math.floor(Math.random()*cards.length);
+  currentIndex=n;showingBack=false;activeMode=0;render();
+}
+function jumpToCard(){
+  const q = searchInput.value.trim().toLowerCase();
+  if(!q && cardSelect.value!==''){currentIndex=Number(cardSelect.value);showingBack=false;activeMode=0;render();return;}
+  if(!q) return;
+  const numMatch = q.match(/v?(\d{1,3})/i);
+  if(numMatch){
+    const idx = cards.findIndex(c => c.id===Number(numMatch[1]));
+    if(idx>=0){currentIndex=idx;showingBack=false;activeMode=0;render();return;}
+  }
+  const idx = cards.findIndex(c => c.word.toLowerCase().includes(q) || c.collocations.some(x => x.phrase.toLowerCase().includes(q)) || c.meaning.toLowerCase().includes(q));
+  if(idx>=0){currentIndex=idx;showingBack=false;activeMode=0;render();}
+}
+function toggleVietnamese(){
+  hideVietnamese=!hideVietnamese;
+  toggleVnBtn.textContent = hideVietnamese ? 'Show Vietnamese' : 'Hide Vietnamese';
+  render();
+}
+
+document.addEventListener('keydown', (e)=>{
+  if(['INPUT','SELECT','TEXTAREA'].includes(document.activeElement.tagName)) return;
+  if(e.code==='Space'){e.preventDefault(); showingBack=!showingBack; if(showingBack && activeMode===null) activeMode=0; render();}
+  if(e.key==='ArrowLeft') prevCard();
+  if(e.key==='ArrowRight') nextCard();
+});
+
+jumpBtn.addEventListener('click', jumpToCard);
+searchInput.addEventListener('keydown', e=>{if(e.key==='Enter') jumpToCard()});
+cardSelect.addEventListener('change', ()=>{if(cardSelect.value!==''){currentIndex=Number(cardSelect.value);showingBack=false;activeMode=0;render();}});
+toggleVnBtn.addEventListener('click', toggleVietnamese);
+fillOptions();
+render();
+</script>
+</body>
+</html>
